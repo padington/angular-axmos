@@ -3,9 +3,10 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
-
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
-
+.controller('TestController',[ '$http', function($http){
+    var store = this;
+    store.servers = [];
+    $http.get('/app/store-servers.json').success(function(data){
+        store.servers = data;	        
+    });    
   }]);
